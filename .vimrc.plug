@@ -1,0 +1,8 @@
+call plug#begin('~/.vim/plugged')
+
+"Fugitive Vim Github Wrapper"
+Plug 'tpope/vim-fugitive'
+Plug 'sheerun/vim-polyglot'
+Plug 'dense-analysis/ale'
+
+call plug#end()
