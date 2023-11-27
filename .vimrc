@@ -1,17 +1,17 @@
-set nocompatible
+:set number relativenumber
+:set nu rnu
+:set autoindent
 
-set number relativenumber
-set nu rnu
-
-syntax on
+:syntax on
+:color slate
 
 syntax enable
 
-set tabstop=2
-set shiftwidth=2
+:set tabstop=8
+:set shiftwidth=8
 
 au FileType yaml setlocal ai ts=2 sw=2 et
 
-filetype on
-filetype plugin on
-filetype indent on
+if filereadable(expand("~/.vimrc.plug"))
+	source ~/.vimrc.plug
+endif
