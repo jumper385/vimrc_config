@@ -4,5 +4,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 Plug 'dense-analysis/ale'
+Plug 'nvie/vim-flake8'
+Plug 'ambv/black'
 
 call plug#end()
