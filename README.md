@@ -16,3 +16,4 @@ cd vim/src
 make
 sudo make install
 ```
+Then restart the shell for the changes to take effect. use `vim --version` to confirm `+python3`
