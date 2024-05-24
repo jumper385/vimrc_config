@@ -354,3 +354,34 @@ function! <SID>BufcloseCloseIt()
      execute("bdelete! ".l:currentBufNum)
    endif
 endfunction
+
+call plug#begin()
+
+Plug 'tpope/vim-sensible'
+Plug 'dense-analysis/ale' " linting and fixing code.
+Plug 'vim-scripts/DoxygenToolkit.vim' " Doxygen support
+Plug 'vim-scripts/c.vim' " Syntax highlighting and indentationo
+Plug 'cdelledonne/vim-cmake'
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " text completion endine
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' } " a beautiful color scheme
+
+call plug#end()
+
+let g:coc_global_extensions = ['coc-clangd']
+let g:clangd_install_prefix = '/usr/'
+let g:clangd_command = ['clangd',
+\   '--clang-tidy',
+\   '--background-index',
+\   '--header-insertion-decorators=0',
+\   '--completion-style=detailed']
+
+nnoremap <silent> K :call <sid>show_documentation()<cr>
+function! s:show_documentation()
+    if index(['vim', 'help'], &filetype) >= 0
+        execute 'help ' . expand('<cword>')
+    elseif &filetype ==# 'tex'
+        VimtexDocPackage
+    else
+        call CocAction('doHover')
+    endif
+endfunction
